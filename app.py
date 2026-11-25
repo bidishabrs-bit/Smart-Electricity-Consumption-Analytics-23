@@ -7,7 +7,7 @@ import plotly.express as px
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
-DATA_PATH = ROOT / "data" / "energy_consumption.csv"
+DATA_PATH = ROOT / "energy_consumption.csv"
 MODEL_PATH = ROOT / "models" / "energy_model.joblib"
 
 st.set_page_config(page_title="Smart Electricity Consumption Analytics", page_icon="⚡", layout="wide")
