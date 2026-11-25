@@ -1,3 +1,4 @@
+from sklearn.ensemble import RandomForestRegressor
 from pathlib import Path
 import json
 import joblib
@@ -17,11 +18,25 @@ def load_data():
     return pd.read_csv(DATA_PATH, parse_dates=["date"])
 
 @st.cache_resource
-def load_model():
-    return joblib.load(MODEL_PATH)
+def load_model(data):
+    features = [
+        c for c in data.columns
+        if c not in ["date", "daily_kwh"]
+    ]
+
+    model = RandomForestRegressor(
+        n_estimators=120,
+        max_depth=14,
+        random_state=42,
+        n_jobs=-1
+    )
+
+    model.fit(data[features], data["daily_kwh"])
+    return model, features
+
 
 df = load_data()
-bundle = load_model()
+model, features = load_model(df)
 model, features = bundle["model"], bundle["features"]
 
 st.sidebar.title("⚡ Energy Analytics")
