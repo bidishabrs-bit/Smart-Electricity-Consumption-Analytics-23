@@ -37,7 +37,6 @@ def load_model(data):
 
 df = load_data()
 model, features = load_model(df)
-model, features = bundle["model"], bundle["features"]
 
 st.sidebar.title("⚡ Energy Analytics")
 page = st.sidebar.radio("Navigate", [
