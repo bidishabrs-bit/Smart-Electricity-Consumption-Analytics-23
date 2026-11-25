@@ -1,0 +1,23 @@
+{
+  "mae_kwh": 0.7841,
+  "rmse_kwh": 0.9847,
+  "r2": 0.8247,
+  "records": 3650,
+  "train_records": 2920,
+  "test_records": 730,
+  "features": [
+    "temperature_c",
+    "humidity_pct",
+    "occupants",
+    "ac_hours",
+    "washing_cycles",
+    "lighting_hours",
+    "device_hours",
+    "previous_day_kwh",
+    "day_of_week",
+    "month",
+    "fan_hours",
+    "refrigerator_hours"
+  ],
+  "note": "Metrics are measured on a synthetic demonstration dataset and are not evidence of real-world performance."
+}
